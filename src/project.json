@@ -1,0 +1,8 @@
+{
+  "name": "skeleton-app-webpack4",
+  "title": "App Webpack4",
+  "description": "skeleton for webpack4 app",
+  "themeColor": "#ffffff",
+  "backgroundColor": "#ffffff",
+  "isPwa": false
+}

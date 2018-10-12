@@ -1,0 +1,38 @@
+.home-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 150px;
+
+  h1 {
+    font-size: 6rem;
+    font-weight: bold;
+    margin-bottom: 3rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+
+  .btn {
+    border-radius: 5px;
+    font-size: 2rem;
+    max-width: 500px;
+    text-align: center;
+  }
+
+  .image {
+    display: block;
+    margin-bottom: 2rem;
+    max-width: 100px;
+
+    img {
+      display: block;
+      height: auto;
+      width: 100%;
+    }
+  }
+}

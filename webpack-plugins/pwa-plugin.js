@@ -12,7 +12,7 @@ const manifestPlugin = (name, title, description, themeColor, backgroundColor) =
   name: title,
   short_name: name,
   description,
-  start_url: '/webpack4/',
+  start_url: `/${name}/`,
   display: 'standalone',
   theme_color: themeColor,
   background_color: backgroundColor,

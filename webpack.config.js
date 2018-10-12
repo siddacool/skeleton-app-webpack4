@@ -10,8 +10,8 @@ const {
   themeColor,
   backgroundColor,
   isPwa,
-} = require('./package.json');
-const { workboxPlugin, manifestPlugin } = require('./pwa.config');
+} = require('./src/project.json');
+const { workboxPlugin, manifestPlugin } = require('./webpack-plugins/pwa-plugin');
 
 const isProduction = argv.mode.toString() === 'production';
 
@@ -23,7 +23,7 @@ if (isProduction) {
 
 plugins.push(
   new HtmlWebPackPlugin({
-    favicon: (isProduction ? null : './src/favicon.png'),
+    favicon: (isProduction ? null : './src/images/favicon.png'),
     template: './src/index.html',
     filename: './index.html',
   }),
@@ -37,13 +37,13 @@ plugins.push(
 );
 
 if (isProduction) {
-  plugins.push(new FaviconsWebpackPlugin('./src/favicon.png'));
+  plugins.push(new FaviconsWebpackPlugin('./src/images/favicon.png'));
 }
 
 // Progressive webapp
 if (isPwa) {
-  plugins.push(manifestPlugin());
-  plugins.push(workboxPlugin(name, title, description, themeColor, backgroundColor));
+  plugins.push(manifestPlugin(name, title, description, themeColor, backgroundColor));
+  plugins.push(workboxPlugin());
 }
 
 module.exports = {
