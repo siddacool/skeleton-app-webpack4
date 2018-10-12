@@ -3,6 +3,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const { argv } = require('yargs');
+const { workboxPlugin, manifestPlugin } = require('./webpack-plugins/pwa-plugin');
+const browserSyncPlugin = require('./webpack-plugins/browser-sync-plugin');
 const {
   name,
   title,
@@ -11,14 +13,18 @@ const {
   backgroundColor,
   isPwa,
 } = require('./src/project.json');
-const { workboxPlugin, manifestPlugin } = require('./webpack-plugins/pwa-plugin');
 
 const isProduction = argv.mode.toString() === 'production';
+const isBrowserSync = argv.watch;
 
 const plugins = [];
 
 if (isProduction) {
   plugins.push(new CleanWebpackPlugin(['dist/*'], { exclude: ['.git'] }));
+}
+
+if (isBrowserSync) {
+  plugins.push(browserSyncPlugin());
 }
 
 plugins.push(
