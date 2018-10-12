@@ -1,6 +1,4 @@
-import { isPwa } from '../package.json';
-
-function init() {
+function pwa() {
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('/sw.js').then((registration) => {
@@ -12,8 +10,4 @@ function init() {
   }
 }
 
-if (isPwa) {
-  init();
-} else {
-  console.log('No PWA');
-}
+export default pwa;

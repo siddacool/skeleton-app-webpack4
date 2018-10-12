@@ -1,6 +1,8 @@
 import './App';
-import './main.scss';
-import image1 from './images/image.png';
-import './pwa';
+import './styles/main.scss';
+import { isPwa } from './project.json';
+import pwa from './pwa';
 
-console.log(image1);
+if (isPwa) {
+  pwa();
+}
