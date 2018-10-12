@@ -24,10 +24,12 @@
     text-align: center;
   }
 
-  .image {
+  .logo {
     display: block;
     margin-bottom: 2rem;
     max-width: 100px;
+    transform: scale(1);
+    transition: transform 1s;
 
     img {
       display: block;

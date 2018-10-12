@@ -5,6 +5,7 @@
   "scripts": {
     "svg-make": "gulp svg-make",
     "start": "webpack-dev-server --mode development --open",
+    "browser-sync": "webpack-dev-server --mode development --watch",
     "dev": "webpack --mode development",
     "build": "npm run svg-make && webpack --mode production"
   },
@@ -16,6 +17,8 @@
     "@babel/preset-env": "^7.1.0",
     "autoprefixer": "^9.1.5",
     "babel-loader": "^8.0.4",
+    "browser-sync": "^2.26.0",
+    "browser-sync-webpack-plugin": "^2.2.2",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^1.0.0",
     "ejs-webpack-loader": "^2.2.2",

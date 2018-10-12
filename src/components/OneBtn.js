@@ -5,6 +5,7 @@ export default class extends Component {
     super();
     this.state = {
       name: 'Click This Button',
+      stopMsg: "Stop, That's enough!",
       hexa: 0x1000000,
       padAt: 6,
       clicks: 0,
@@ -30,13 +31,13 @@ export default class extends Component {
       const thisSelf = self;
       const parent = thisSelf.parentElement;
       const logo = parent.querySelector('.logo');
-      const { clicks } = this.state;
+      const { clicks, stopMsg } = this.state;
       this.state.clicks = clicks + 1;
       thisSelf.style.color = this.generateRandomColor();
       thisSelf.style.backgroundColor = this.generateRandomColor();
 
       if (clicks > 5) {
-        thisSelf.innerText = "Stop It's Enough!";
+        thisSelf.innerText = stopMsg;
         logo.style.transform = 'scale(5)';
       }
     });
