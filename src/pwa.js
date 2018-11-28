@@ -1,3 +1,5 @@
+import { isPwa } from './project.json';
+
 function pwa() {
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
@@ -10,4 +12,8 @@ function pwa() {
   }
 }
 
-export default pwa;
+if (isPwa) {
+  pwa();
+} else {
+  console.log('no pwa');
+}

@@ -1,16 +1,16 @@
-import Logo from '../components/Logo';
-import OneBtn from '../components/OneBtn';
 import { title } from '../project.json';
+import icon from '../images/icon.png';
+import '../components/SomeApp';
+import '../components/LogoElm';
+import '../components/OneBtn';
 
 export default function () {
-  const oneBtn = new OneBtn();
-
   return `
-    <div class="home-container">
-      ${Logo()}
+    <some-app class="home-container">
+      <logo-elm src="${icon}"></logo-elm>
       <h2>This is</h3>
       <h1>${title}</h1>
-      ${oneBtn.Render()}
-    </div>
+      <one-btn></one-btn>
+    </some-app>
   `;
 }

@@ -1,4 +1,5 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -36,6 +37,20 @@ plugins.push(
 );
 
 plugins.push(
+  new HtmlWebpackExternalsPlugin({
+    externals: [
+      {
+        module: '@webcomponents',
+        entry: [
+          'webcomponentsjs/custom-elements-es5-adapter.js',
+          'webcomponentsjs/webcomponents-loader.js',
+        ],
+      },
+    ],
+  }),
+);
+
+plugins.push(
   new MiniCssExtractPlugin({
     filename: (isProduction ? 'style.[chunkhash].css' : 'style.css'),
     chunkFilename: '[id].css',
@@ -43,7 +58,10 @@ plugins.push(
 );
 
 if (isProduction) {
-  plugins.push(new FaviconsWebpackPlugin('./src/images/favicon.png'));
+  plugins.push(new FaviconsWebpackPlugin({
+    logo: './src/images/favicon.png',
+    background: themeColor,
+  }));
 }
 
 // Progressive webapp
